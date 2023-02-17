@@ -5,6 +5,7 @@ Developing a video game is a complicated process. And getting feedback is an imp
 - What things did players enjoy the most?
 - What things did players enjoy the least?
 - and more...
+
 The valuable answers to these questions will allow developers to more closely understand what players find the most compelling about their game, so they know to spend more development time on them!
 
 
