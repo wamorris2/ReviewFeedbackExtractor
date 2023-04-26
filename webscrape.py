@@ -19,7 +19,7 @@ def main():
     MAX_REVIEWS = 1000
     for i, id in enumerate(appids):
         url = f'https://steamcommunity.com/app/{id}/reviews/?browsefilter=toprated&snr=1_5_100010_'
-        sys.stdin.flush()
+        sys.stdout.flush()
         print(f'{(i+1)}/{len(appids)} url: {url}')
         driver.get(url)
         html = driver.page_source
