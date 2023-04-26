@@ -1,5 +1,5 @@
 from bs4 import BeautifulSoup as bs4
-import time, re, shutil, os, sys
+import time, re, os, sys
 from selenium import webdriver
 import pandas as pd
 
