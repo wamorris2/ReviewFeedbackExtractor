@@ -1,0 +1,5 @@
+.vscode
+proj-env
+geckodriver
+geckodriver.log
+*.csv
