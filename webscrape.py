@@ -4,22 +4,44 @@ from selenium import webdriver
 import pandas as pd
 
 def main():
-    driver = webdriver.Firefox('/home/wamorris/Projects/NLP_Final_Proj/')
+    driver = webdriver.Firefox(os.getcwd())
 
-    output_file = "review_text.csv"
+    output_file = "reviews.csv"
     if os.path.exists(output_file):
         os.remove(output_file)
     div = '</div>'
-    appids = ['1245620','289070','1811260','1172620','389730','990080','1142710','945360','1097150','548430','105600','1817230','620980',
-              '814380','247080','322170','413150','270880','1343400','438100','1517290']
+    appids = [#'1245620', # Elden Ring
+              '289070', # Civ 6
+              #'1811260', # FIFA 23
+              #'1172620', # Sea of Thieves
+              '389730', # TEKKEN 7
+              #'990080', # Hogwarts Legacy
+              #'1142710', # Total War: Warhammer 3
+              #'945360', # Among Us
+              #'1097150', # Fall Guys
+              #'548430', # Deep Rock Galatic
+              '105600', # Terraria
+              #'1817230', # Hi-Fi Rush
+              #'620980', # Beat Saber
+              #'814380', # Sekiro
+              #'247080', # Crypt of the NecroDancer
+              #'322170', # Geometry Dash
+              '413150', # Stardew Valley
+              '270880', # American Truck Simulator
+              '1343400', # RuneScape
+              '438100', # VRChat
+              #'1517290', # Battlefield 2042
+              '379720', # DOOM
+              '72850', # Skyrim
+              ]
     opinions = []
     texts = []
     titles = []
     TIME_TO_LOAD = 3
-    MAX_REVIEWS = 1000
+    MAX_REVIEWS = 20000
     for i, id in enumerate(appids):
         url = f'https://steamcommunity.com/app/{id}/reviews/?browsefilter=toprated&snr=1_5_100010_'
-        sys.stdout.flush()
+        #sys.stdout.flush()
         print(f'{(i+1)}/{len(appids)} url: {url}')
         driver.get(url)
         html = driver.page_source
@@ -56,7 +78,7 @@ def main():
     })
     print(df)
     driver.close()
-    df.to_csv(output_file)
+    df.to_csv(output_file, index=False)
 
 if __name__ == "__main__":
     main()
